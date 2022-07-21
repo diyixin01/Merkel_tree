@@ -9,6 +9,9 @@ Merkle树看起来非常像二叉树，其叶子节点上的值通常为数据�
 
 
 构造Merkle tree时：
+
+
+
 （1）对data blocks分别计算哈希值（sha256等算法）；
 
 
