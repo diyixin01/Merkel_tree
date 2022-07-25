@@ -31,13 +31,32 @@ C++版本中，使用一维数组代表merkle树，数组元素为我们的自�
 
 随后我们进行验证，证明4在树中而9.5不在树中
 
+#函数解释
+
+new_node为用于创建新节点的宏函数；
 
 
-如图所示：
+uint hash_nodes(uint n1, uint n2)用于计算由两个旧节点生成的新节点的哈希值；
 
 
+void print_tree(merkletree* tree, int height)用于打印出生成的Merkletree；
 
-![image](https://user-images.githubusercontent.com/75195549/180652290-0917e5e1-1791-415c-9896-0e2b1c8a1170.png)
+uint hash(char* s1, char* s2)用于计算单个节点的哈希值；
 
+merkletree* last_node(merkletree* tree)用于寻找当前merkletree中最后一个节点；
 
+merkletree* find_new_node(merkletree* tree)用于寻找可插入的新节点；
+
+merkletree* initial(merkletree* tree, char** s, int n)生成merkletree，倘若该层节点不足以两两分完，则将最后一个节点记录下来，并以它为头节点对应的树上的所有节点高度均加一作为下一层节点进行，以符合RFC6962要求。
+
+void delete_tree(merkletree* tree)删除merkletree；
+
+char** divide_string(char* str, int* number)merkletree支持字符串的存储，且以标点符号为分割；
+
+void delete_string(char** s, int n)删除字符串；
+
+运行测试
+给定message=""
+
+更改message信息即可创建具有10w节点的merkletree。
 
