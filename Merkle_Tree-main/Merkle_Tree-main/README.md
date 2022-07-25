@@ -1,14 +1,3 @@
-# 实验名称
-Impl Merkle Tree following RFC6962
-
-# 实验完成人
-权周雨 
-
-学号：202000460021 
-
-git账户名称：baekhunee
-
-# 代码部分说明
 new_node为用于创建新节点的宏函数；
 
 void print_tree(merkletree* tree, int height)用于打印出生成的Merkletree；
