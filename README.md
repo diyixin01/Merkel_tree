@@ -7,7 +7,7 @@ Merkle树看起来非常像二叉树，其叶子节点上的值通常为数据�
 ![image](https://user-images.githubusercontent.com/75195549/180139360-4bda80e1-2a58-4fe3-9689-79cd79f59e0e.png)
 
 
-
+# 基本思路
 构造Merkle tree时：
 
 
@@ -29,7 +29,7 @@ proof可以用来检验数据的完整性和正确性，即一个data block的�
 C++版本中，使用一维数组代表merkle树，数组元素为我们的自写结构体，其中包含左右子树以及父节点的引用标号、Hash值、节点深度等变量。我们依次按照此种顺序将Hash值写入对应数组元素，并设置其高度（根据每次轮回不同，节点高度应对应增加）、子树节点以及父节点等。倘若该层节点不足以两两分完，则将最后一个节点记录下来，并以它为头节点对应的树上的所有节点高度均加一，作为下一层节点进行，此处是为了符合RFC6962要求。
 待所有节点均被设置，Merkle树创建完毕。
 
-#函数解释
+# 函数解释
 
 new_node为用于创建新节点的宏函数；
 
@@ -53,7 +53,7 @@ char** divide_string(char* str, int* number)merkletree支持字符串的存储�
 
 void delete_string(char** s, int n)删除字符串；
 
-运行测试
+# 运行测试
 给定message="Liujinyuan，202000460082，male"
 
 得到下图所示的运行结果：
