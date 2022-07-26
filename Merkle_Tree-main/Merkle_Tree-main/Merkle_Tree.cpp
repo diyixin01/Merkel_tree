@@ -4,7 +4,7 @@
 
 typedef unsigned int uint;
 
-//½á¹¹Ìå¶¨Òå
+//ç»“æž„ä½“å®šä¹‰
 typedef struct Node
 {
 	struct Node* left;
@@ -15,7 +15,7 @@ typedef struct Node
 	char* str;
 }merkletree;
 
-//ÓÃÓÚ´´½¨ÐÂ½ÚµãµÄºêº¯Êý
+//ç”¨äºŽåˆ›å»ºæ–°èŠ‚ç‚¹çš„å®å‡½æ•°
 #define new_node(tree, depth){\
 	tree = (merkletree *)malloc(sizeof(merkletree)); \
 	tree->left = NULL; \
@@ -319,7 +319,41 @@ void delete_string(char** s, int n)
 		free(*(s + i));
 	free(s);
 }
+bool MT_proof(int points)
+{
+	if (arr[points].left != -1 && arr[points].right != -1)
+	{
+		return 0;
+	}
+	string b = Hash(to_string(arr[points].num));
+	int c = points;
+	do
+	{
+		int a = arr[c].parent;
+		if (arr[a].right != c)
+		{
+			b = Hash(b + arr[arr[a].right].hash_i);
+		}
+		else b = Hash(arr[arr[a].left].hash_i + b);
+		c = a;
+	} while (arr[c].parent != -1);
+	if (b == arr[c].hash_i)
+		return 1;
+	else return 0;
+}
 
+bool MT_not_proof(double points)
+{
+	int a = points;
+	int b = a + 1;
+	bool b1 = MT_proof(a);
+	bool b2 = MT_proof(b);
+	if (b1 && b2)
+	{
+		return 1;
+	}
+	else return 0;
+}
 int main()
 {
 	char** s;
@@ -338,6 +372,11 @@ int main()
 	}
 	delete_string(s, n);
 	delete_tree(tree);
-
+if (MT_proof('liujinyuan'))
+		cout << "liujinyuan is in this tree" << endl;
+	else cout << "liujinyuan is not in this tree" << endl;
+	if (MT_not_proof(4))
+		cout << "4 is in this tree" << endl;
+	else cout << "4 is not  in this tree" << endl;
 	return 0;
 }
