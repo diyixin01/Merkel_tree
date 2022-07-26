@@ -360,7 +360,7 @@ int main()
 	int n;
 	merkletree* tree = NULL;
 
-	char message[] = "Hello!This is Baekhunee.I'm writing a merkle tree!";
+	char message[] = "Liujinyuan,202000460082,male";
 	s = divide_string(message, &n);
 
 	tree = initial(tree, s, n);
