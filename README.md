@@ -74,3 +74,12 @@ void delete_string(char** s, int n)删除字符串；
 
 更改message信息即可创建具有10w节点的merkletree。
 
+
+然后对其进行存在性测试：
+
+
+结果如下：
+
+
+![image](https://user-images.githubusercontent.com/75195549/181044860-7dccd6dd-dd27-4e90-a377-4e9e40060437.png)
+
