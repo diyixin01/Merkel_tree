@@ -68,11 +68,7 @@ void delete_string(char** s, int n)删除字符串；
 得到下图所示的运行结果：
 
 
-
-![image](https://user-images.githubusercontent.com/75195549/180789550-8bd7cd42-e0c9-4f91-946f-7ec90fc7e6cd.png)
-
-
-
+![image](https://user-images.githubusercontent.com/75195549/181455652-b5e1a373-a57a-49d6-a25e-eee395390abd.png)
 
 
 
